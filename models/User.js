@@ -1,10 +1,9 @@
 import mongooseConnection from '../config/db/mongodb'
 import mongoose from 'mongoose'
-const Schema = mongoose.Schema;
 
-const User = new Schema({
-  username: String,
-  password: String,
+const User = new mongoose.Schema({
+  username: { type: String, unique: true },
+  password:{ type: String},
 });
 
 export default mongooseConnection.model('User', User)
